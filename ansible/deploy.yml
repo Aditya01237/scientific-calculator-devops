@@ -1,0 +1,11 @@
+- hosts: servers
+  tasks:
+
+    - name: Pull docker image
+      docker_container:
+        name: calculator
+        image: aditya01237/calculator:latest
+        state: started
+        recreate: yes
+        ports:
+          - "8080:8080"
