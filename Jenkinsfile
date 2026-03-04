@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/scientific-calculator-devops.git'
+                git 'https://github.com/Aditya01237/scientific-calculator-devops.git'
             }
         }
 
