@@ -8,6 +8,7 @@
     <groupId>com.calculator</groupId>
     <artifactId>scientific-calculator</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
 
     <dependencies>
 
