@@ -17,7 +17,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t aditya01237/calculator:latest .'
+                sh 'docker build -t adityapareek01/calculator:latest .'
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
                 passwordVariable: 'DOCKER_PASS')]) {
 
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                    sh 'docker push aditya01237/calculator:latest'
+                    sh 'docker push adityapareek01/calculator:latest'
                 }
             }
         }
