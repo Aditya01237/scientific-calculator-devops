@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/Aditya01237/scientific-calculator-devops.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'mvn clean compile'
