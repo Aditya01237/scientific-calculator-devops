@@ -1,7 +1,11 @@
-FROM eclipse-temurin:17-jdk
+# Use official Java 21 image
+FROM eclipse-temurin:21-jre-alpine
 
+# Set working directory inside container
 WORKDIR /app
 
+# Copy jar file into container
 COPY target/scientific-calculator-1.0.jar app.jar
 
-ENTRYPOINT ["java","-jar","app.jar"]
+# Run the application
+CMD ["java", "-jar", "app.jar"]

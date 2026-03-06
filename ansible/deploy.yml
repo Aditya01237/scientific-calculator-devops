@@ -1,11 +1,24 @@
-- hosts: servers
+- name: Deploy Calculator Container
+  hosts: myhosts
+
   tasks:
 
-    - name: Pull docker image
-      docker_container:
-        name: calculator
+    - name: Pull latest Docker image
+      community.docker.docker_image:
+        name: adityapareek01/calculator
+        tag: "latest"
+        source: pull
+
+    - name: Stop existing container
+      community.docker.docker_container:
+        name: calculator-container
+        state: absent
+
+    - name: Run new container
+      community.docker.docker_container:
+        name: calculator-container
         image: adityapareek01/calculator:latest
         state: started
-        recreate: yes
-        ports:
-          - "7070:8080"
+        recreate: true
+        tty: true
+        interactive: true
