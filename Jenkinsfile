@@ -28,7 +28,6 @@ pipeline {
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
-
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                     sh 'docker push adityapareek01/calculator:latest'
                 }
@@ -41,5 +40,22 @@ pipeline {
             }
         }
 
+    }
+
+    post {
+        success {
+            mail (
+                to: 'adityapareek874@gmail.com',
+                subject: "SUCCESS: Build ${env.BUILD_NUMBER} - ${env.JOB_NAME}",
+                body: "Build #${env.BUILD_NUMBER} completed successfully.\nJob: ${env.JOB_NAME}\nBuild URL: ${env.BUILD_URL}"
+            )
+        }
+        failure {
+            mail (
+                to: 'adityapareek874@gmail.com',
+                subject: "FAILED: Build ${env.BUILD_NUMBER} - ${env.JOB_NAME}",
+                body: "Build #${env.BUILD_NUMBER} has failed.\nJob: ${env.JOB_NAME}\nBuild URL: ${env.BUILD_URL}\nCheck Jenkins console for details."
+            )
+        }
     }
 }
