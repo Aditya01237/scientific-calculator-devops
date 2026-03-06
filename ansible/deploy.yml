@@ -22,3 +22,4 @@
         recreate: true
         tty: true
         interactive: true
+        detach: true
