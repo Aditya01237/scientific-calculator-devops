@@ -9,7 +9,7 @@ public class Calculator {
     public double sqrt(double a) {
         if (a < 0)
             throw new IllegalArgumentException("Negative square root");
-        return Math.sqrt(a);
+        return Math.sqrt(a;
     }
 
     public long factorial(int n) {

@@ -18,7 +18,7 @@ public class Main {
             System.out.println("4. Factorial");
             System.out.println("5. Natural Logarithm");
             System.out.println("6. Exit");
-            System.out.print("Enter your choice: \n");
+            System.out.print("Enter your choice: ");
 
             choice = sc.nextInt();
             try {
